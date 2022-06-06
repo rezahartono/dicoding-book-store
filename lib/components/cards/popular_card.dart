@@ -1,3 +1,4 @@
+import 'package:book_store/utils/string_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:book_store/models/master_data/book_model.dart';
@@ -116,7 +117,7 @@ class PopularCard extends StatelessWidget {
                           ],
                         ),
                         Text(
-                          'Rp. ${book.price}',
+                          STRING_UTILS.PRICE_FORMAT(book.price),
                           style: FONT_STYLE.GREEN_TEXT.copyWith(
                             fontSize: 12,
                           ),
