@@ -4,6 +4,7 @@ import 'package:book_store/components/cards/popular_card.dart';
 import 'package:book_store/models/master_data/book_model.dart';
 import 'package:book_store/models/master_data/category_model.dart';
 import 'package:book_store/pages/book_detail_page.dart';
+import 'package:book_store/services/book_service.dart';
 import 'package:book_store/utils/size_config.dart';
 import 'package:book_store/utils/theme.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   List<BookModel> books = [];
   int categoryIndexSelected = 0;
   String selectedCategory = '';
+  bool isLoading = false;
 
   @override
   void initState() {
@@ -29,38 +31,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   // set default data method
-  setData() {
+  setData() async {
+    setState(() {
+      isLoading = true;
+    });
     // data for categories
-    categories.addAll([
-      CategoryModel(
-        icon: Image.asset('assets/icons/business.png'),
-        title: 'Business',
-      ),
-      CategoryModel(
-        icon: Image.asset('assets/icons/drama.png'),
-        title: 'Story',
-      ),
-      CategoryModel(
-        icon: Image.asset('assets/icons/romance.png'),
-        title: 'Romance',
-      ),
-      CategoryModel(
-        icon: Image.asset('assets/icons/design.png'),
-        title: 'Design',
-      ),
-      CategoryModel(
-        icon: Image.asset('assets/icons/art.png'),
-        title: 'Art',
-      ),
-      CategoryModel(
-        icon: Image.asset('assets/icons/soft_skill.png'),
-        title: 'Soft Skill',
-      ),
-      CategoryModel(
-        icon: Image.asset('assets/icons/hard_skill.png'),
-        title: 'Hard Skill',
-      ),
-    ]);
+    categories = await BookService().getCategories();
+    // getCategories();
     // end data
 
     // set selected category
@@ -69,156 +46,31 @@ class _HomePageState extends State<HomePage> {
     // end selected
 
     // data for popular books
-    popularBooks.addAll([
-      BookModel(
-        id: 9786020324784,
-        title: 'Hujan',
-        author: 'Tere Liye',
-        vendor: 'Gramedia Pustaka Utama',
-        category: 'Story',
-        releasedDate: '16 Apr 2018',
-        language: 'Indonesia',
-        totalPage: 320,
-        weight: 0.4,
-        wide: 14.0,
-        width: 21.0,
-        description:
-            'Novel HUJAN berkisah tentang persahabatan, tentang cinta, tentang perpisahan, tentang melupakan, dan tentang hujan',
-        image: 'assets/images/hujan.jpg',
-        ranting: 4.5,
-        price: 75000,
-      ),
-      BookModel(
-        id: 9786020332956,
-        title: 'Bumi',
-        author: 'Tere Liye',
-        vendor: 'Gramedia Pustaka Utama',
-        category: 'Story',
-        releasedDate: '9 Agt 2016',
-        language: 'Indonesia',
-        totalPage: 440,
-        weight: 0.45,
-        wide: 14.0,
-        width: 21.0,
-        description:
-            'Bumi, merupakan rangkaian awal dari kisah sekelompok anak remaja berkemampuan istimewa.',
-        image: 'assets/images/bumi.jpg',
-        ranting: 4.8,
-        price: 85000,
-      ),
-      BookModel(
-        id: 9786239726201,
-        title: 'Janji',
-        author: 'Tere Liye',
-        vendor: 'Penerbit Sabak Grip',
-        category: 'Story',
-        releasedDate: '28 Jul 2021',
-        language: 'Indonesia',
-        totalPage: 250,
-        weight: 0.4,
-        wide: 14.0,
-        width: 21.0,
-        description: 'Kita semua adalah pengembara di dunia ini.',
-        image: 'assets/images/janji.jpg',
-        ranting: 4.8,
-        price: 75000,
-      ),
-      BookModel(
-        id: 9786020523316,
-        title: 'Melangkah',
-        author: 'Js. Khairen',
-        vendor: 'Gramedia Widiasarana Indonesia',
-        category: 'Story',
-        releasedDate: '23 Mar 2020',
-        language: 'Indonesia',
-        totalPage: 368,
-        weight: 0.4,
-        wide: 13.5,
-        width: 20.0,
-        description:
-            'Listrik padam di seluruh Jawa dan Bali secara misterius! Ancaman nyata kekuatan baru yang hendak menaklukkan Nusantara',
-        image: 'assets/images/melangkah.jpg',
-        ranting: 4.8,
-        price: 65000,
-      ),
-    ]);
+    // getPopularBooks();
+    popularBooks = await BookService().getPopularBooks();
     // end data
 
     // data for books
-    books.addAll([
-      BookModel(
-        id: 9786020324784,
-        title: 'Hujan',
-        author: 'Tere Liye',
-        vendor: 'Gramedia Pustaka Utama',
-        category: 'Story',
-        releasedDate: '16 Apr 2018',
-        language: 'Indonesia',
-        totalPage: 320,
-        weight: 0.4,
-        wide: 14.0,
-        width: 21.0,
-        description:
-            'Novel HUJAN berkisah tentang persahabatan, tentang cinta, tentang perpisahan, tentang melupakan, dan tentang hujan',
-        image: 'assets/images/hujan.jpg',
-        ranting: 4.5,
-        price: 75000,
-      ),
-      BookModel(
-        id: 9786020332956,
-        title: 'Bumi',
-        author: 'Tere Liye',
-        vendor: 'Gramedia Pustaka Utama',
-        category: 'Story',
-        releasedDate: '9 Agt 2016',
-        language: 'Indonesia',
-        totalPage: 440,
-        weight: 0.45,
-        wide: 14.0,
-        width: 21.0,
-        description:
-            'Bumi, merupakan rangkaian awal dari kisah sekelompok anak remaja berkemampuan istimewa.',
-        image: 'assets/images/bumi.jpg',
-        ranting: 4.8,
-        price: 85000,
-      ),
-      BookModel(
-        id: 9786239726201,
-        title: 'Janji',
-        author: 'Tere Liye',
-        vendor: 'Penerbit Sabak Grip',
-        category: 'Story',
-        releasedDate: '28 Jul 2021',
-        language: 'Indonesia',
-        totalPage: 250,
-        weight: 0.4,
-        wide: 14.0,
-        width: 21.0,
-        description: 'Kita semua adalah pengembara di dunia ini.',
-        image: 'assets/images/janji.jpg',
-        ranting: 4.8,
-        price: 75000,
-      ),
-      BookModel(
-        id: 9786020523316,
-        title: 'Melangkah',
-        author: 'Js. Khairen',
-        vendor: 'Gramedia Widiasarana Indonesia',
-        category: 'Story',
-        releasedDate: '23 Mar 2020',
-        language: 'Indonesia',
-        totalPage: 368,
-        weight: 0.4,
-        wide: 13.5,
-        width: 20.0,
-        description:
-            'Listrik padam di seluruh Jawa dan Bali secara misterius! Ancaman nyata kekuatan baru yang hendak menaklukkan Nusantara',
-        image: 'assets/images/melangkah.jpg',
-        ranting: 4.8,
-        price: 65000,
-      ),
-    ]);
+    books = await BookService().getBookByCategory(selectedCategory);
+    // getBookByCategory(selectedCategory);
     // end data
+
+    setState(() {
+      isLoading = false;
+    });
+    // end data
+  }
+
+  // getCategories() async {
+  //   categories = await BookService().getCategories();
+  // }
+
+  // getPopularBooks() async {
+  //   popularBooks = await BookService().getPopularBooks();
+  // }
+
+  getBookByCategory(String cat) async {
+    books = await BookService().getBookByCategory(cat);
   }
 
   @override
@@ -331,8 +183,10 @@ class _HomePageState extends State<HomePage> {
                                     selectedCategory = category.title;
                                     categoryIndexSelected = idx;
                                   });
+
+                                  getBookByCategory(category.title);
                                 },
-                                icon: category.icon,
+                                icon: Image.asset(category.icon),
                                 title: category.title,
                                 shadowColor: categoryIndexSelected == idx
                                     ? COLOR_THEME.BLUE.withOpacity(0.3)
@@ -465,23 +319,28 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Column(
-            children: books
-                .map(
-                  (book) => CatalogueItemCard(
-                    book: book,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BookDetailPage(book: book),
+          books.isNotEmpty
+              ? Column(
+                  children: books
+                      .map(
+                        (book) => CatalogueItemCard(
+                          book: book,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    BookDetailPage(book: book),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
+                      )
+                      .toList(),
                 )
-                .toList(),
-          ),
+              : Center(
+                  child: Text('No data'),
+                ),
         ],
       );
     }
@@ -490,20 +349,24 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: COLOR_THEME.LIGHT_GREY,
       body: SafeArea(
-        child: Column(
-          children: [
-            _headerSectionBuild(),
-            Expanded(
-              child: ListView(
+        child: isLoading
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : Column(
                 children: [
-                  _categorySectionBuild(),
-                  _popularSectionBuild(),
-                  _itemBySectionBuild(),
+                  _headerSectionBuild(),
+                  Expanded(
+                    child: ListView(
+                      children: [
+                        _categorySectionBuild(),
+                        _popularSectionBuild(),
+                        _itemBySectionBuild(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -1,0 +1,178 @@
+{
+  "categories": [
+    {
+      "title": "Business",
+      "icon": "assets/icons/business.png"
+    },
+    {
+      "title": "Story",
+      "icon": "assets/icons/drama.png"
+    },
+    {
+      "title": "Romance",
+      "icon": "assets/icons/romance.png"
+    },
+    {
+      "title": "Design",
+      "icon": "assets/icons/design.png"
+    },
+    {
+      "title": "Art",
+      "icon": "assets/icons/art.png"
+    },
+    {
+      "title": "Soft Skill",
+      "icon": "assets/icons/soft_skill.png"
+    },
+    {
+      "title": "Hard Skill",
+      "icon": "assets/icons/hard_skill.png"
+    }
+  ],
+  "popular_books": [
+    {
+      "id": 9786020324784,
+      "title": "Hujan",
+      "author": "Tere Liye",
+      "vendor": "Gramedia Pustaka Utama",
+      "category": "Story",
+      "releasedDate": "16 Apr 2018",
+      "language": "Indonesia",
+      "totalPage": 320,
+      "weight": 0.4,
+      "wide": 14.0,
+      "width": 21.0,
+      "description": "Novel HUJAN berkisah tentang persahabatan, tentang cinta, tentang perpisahan, tentang melupakan, dan tentang hujan",
+      "image": "assets/images/hujan.jpg",
+      "ranting": 4.5,
+      "price": 75000.0
+    },
+    {
+      "id": 9786020332956,
+      "title": "Bumi",
+      "author": "Tere Liye",
+      "vendor": "Gramedia Pustaka Utama",
+      "category": "Story",
+      "releasedDate": "9 Agt 2016",
+      "language": "Indonesia",
+      "totalPage": 440,
+      "weight": 0.45,
+      "wide": 14.0,
+      "width": 21.0,
+      "description": "Bumi, merupakan rangkaian awal dari kisah sekelompok anak remaja berkemampuan istimewa.",
+      "image": "assets/images/bumi.jpg",
+      "ranting": 4.8,
+      "price": 85000.0
+    },
+    {
+      "id": 9786239726201,
+      "title": "Janji",
+      "author": "Tere Liye",
+      "vendor": "Penerbit Sabak Grip",
+      "category": "Story",
+      "releasedDate": "28 Jul 2021",
+      "language": "Indonesia",
+      "totalPage": 250,
+      "weight": 0.4,
+      "wide": 14.0,
+      "width": 21.0,
+      "description": "Kita semua adalah pengembara di dunia ini.",
+      "image": "assets/images/janji.jpg",
+      "ranting": 4.2,
+      "price": 70000.0
+    },
+    {
+      "id": 9786020523316,
+      "title": "Melangkah",
+      "author": "Js. Khairen",
+      "vendor": "Gramedia Widiasarana Indonesia",
+      "category": "Story",
+      "releasedDate": "23 Mar 2020",
+      "language": "Indonesia",
+      "totalPage": 368,
+      "weight": 0.4,
+      "wide": 13.5,
+      "width": 20.0,
+      "description": "Listrik padam di seluruh Jawa dan Bali secara misterius! Ancaman nyata kekuatan baru yang hendak menaklukkan Nusantara",
+      "image": "assets/images/melangkah.jpg",
+      "ranting": 4.7,
+      "price": 65000.0
+    }
+  ],
+  "Story": [
+    {
+      "id": 9786020324784,
+      "title": "Hujan",
+      "author": "Tere Liye",
+      "vendor": "Gramedia Pustaka Utama",
+      "category": "Story",
+      "releasedDate": "16 Apr 2018",
+      "language": "Indonesia",
+      "totalPage": 320,
+      "weight": 0.4,
+      "wide": 14.0,
+      "width": 21.0,
+      "description": "Novel HUJAN berkisah tentang persahabatan, tentang cinta, tentang perpisahan, tentang melupakan, dan tentang hujan",
+      "image": "assets/images/hujan.jpg",
+      "ranting": 4.5,
+      "price": 75000.0
+    },
+    {
+      "id": 9786020332956,
+      "title": "Bumi",
+      "author": "Tere Liye",
+      "vendor": "Gramedia Pustaka Utama",
+      "category": "Story",
+      "releasedDate": "9 Agt 2016",
+      "language": "Indonesia",
+      "totalPage": 440,
+      "weight": 0.45,
+      "wide": 14.0,
+      "width": 21.0,
+      "description": "Bumi, merupakan rangkaian awal dari kisah sekelompok anak remaja berkemampuan istimewa.",
+      "image": "assets/images/bumi.jpg",
+      "ranting": 4.8,
+      "price": 85000.0
+    },
+    {
+      "id": 9786239726201,
+      "title": "Janji",
+      "author": "Tere Liye",
+      "vendor": "Penerbit Sabak Grip",
+      "category": "Story",
+      "releasedDate": "28 Jul 2021",
+      "language": "Indonesia",
+      "totalPage": 250,
+      "weight": 0.4,
+      "wide": 14.0,
+      "width": 21.0,
+      "description": "Kita semua adalah pengembara di dunia ini.",
+      "image": "assets/images/janji.jpg",
+      "ranting": 4.2,
+      "price": 70000.0
+    },
+    {
+      "id": 9786020523316,
+      "title": "Melangkah",
+      "author": "Js. Khairen",
+      "vendor": "Gramedia Widiasarana Indonesia",
+      "category": "Story",
+      "releasedDate": "23 Mar 2020",
+      "language": "Indonesia",
+      "totalPage": 368,
+      "weight": 0.4,
+      "wide": 13.5,
+      "width": 20.0,
+      "description": "Listrik padam di seluruh Jawa dan Bali secara misterius! Ancaman nyata kekuatan baru yang hendak menaklukkan Nusantara",
+      "image": "assets/images/melangkah.jpg",
+      "ranting": 4.7,
+      "price": 65000.0
+    }
+  ],
+  "Business": [],
+  "Romance": [],
+  "Design": [],
+  "Art": [],
+  "Soft Skill": [],
+  "Hard Skill": []
+}

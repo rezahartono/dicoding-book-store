@@ -107,15 +107,37 @@ class BookDetailPage extends StatelessWidget {
           horizontal: SIZE_CONFIG.DEFAULT_MARGIN,
           vertical: SIZE_CONFIG.DEFAULT_MARGIN / 2,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
           children: [
-            Text(
-              book.title,
-              style: FONT_STYLE.BLACK_TEXT.copyWith(
-                fontWeight: FONT_WEIGHT.SEMI_BOLD,
-                fontSize: 18,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    book.title,
+                    style: FONT_STYLE.BLACK_TEXT.copyWith(
+                      fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
               ),
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.star,
+                  color: COLOR_THEME.GOLD,
+                  size: 24,
+                ),
+                SizedBox(width: SIZE_CONFIG.BLOCK_HORIZONTAL * 0.5),
+                Text(
+                  '${book.ranting}',
+                  style: FONT_STYLE.BLACK_TEXT.copyWith(
+                    fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -126,9 +148,229 @@ class BookDetailPage extends StatelessWidget {
     // description section
     Widget _descriptionSectionBuild() {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: SIZE_CONFIG.DEFAULT_MARGIN),
+        padding: EdgeInsets.symmetric(
+          horizontal: SIZE_CONFIG.DEFAULT_MARGIN,
+          vertical: SIZE_CONFIG.DEFAULT_MARGIN / 2,
+        ),
         child: Column(
-          children: [],
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Description :',
+              style: FONT_STYLE.GREY_TEXT.copyWith(
+                fontWeight: FONT_WEIGHT.SEMI_BOLD,
+              ),
+            ),
+            SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+            Text(
+              book.description,
+              textAlign: TextAlign.justify,
+              style: FONT_STYLE.BLACK_TEXT.copyWith(
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+    // end section
+
+    // detail section
+    Widget _detailSectionBuild() {
+      return Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: SIZE_CONFIG.DEFAULT_MARGIN,
+          vertical: SIZE_CONFIG.DEFAULT_MARGIN / 2,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Detail :',
+              style: FONT_STYLE.GREY_TEXT.copyWith(
+                fontWeight: FONT_WEIGHT.SEMI_BOLD,
+              ),
+            ),
+            SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Total pages',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        book.totalPage.toString(),
+                        style: FONT_STYLE.BLACK_TEXT,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Vendor',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        book.vendor,
+                        style: FONT_STYLE.BLACK_TEXT.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Released date',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        book.releasedDate,
+                        style: FONT_STYLE.BLACK_TEXT.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Weight',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        '${book.weight} Kg',
+                        style: FONT_STYLE.BLACK_TEXT.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Book Id',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        book.id.toString(),
+                        style: FONT_STYLE.BLACK_TEXT.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Wide',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        '${book.wide} cm',
+                        style: FONT_STYLE.BLACK_TEXT.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Language',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        book.language,
+                        style: FONT_STYLE.BLACK_TEXT.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Width',
+                        style: FONT_STYLE.GREY_TEXT.copyWith(
+                          fontWeight: FONT_WEIGHT.SEMI_BOLD,
+                        ),
+                      ),
+                      SizedBox(height: SIZE_CONFIG.DEFAULT_MARGIN / 2),
+                      Text(
+                        '${book.width} cm',
+                        style: FONT_STYLE.BLACK_TEXT.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       );
     }
@@ -142,6 +384,7 @@ class BookDetailPage extends StatelessWidget {
             _coverImageSectionBuild(),
             _titleSectionBuild(),
             _descriptionSectionBuild(),
+            _detailSectionBuild(),
           ],
         ),
       );

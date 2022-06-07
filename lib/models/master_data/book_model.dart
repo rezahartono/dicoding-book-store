@@ -32,4 +32,42 @@ class BookModel {
     required this.ranting,
     required this.price,
   });
+
+  BookModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    author = json['author'];
+    vendor = json['vendor'];
+    category = json['category'];
+    releasedDate = json['releasedDate'];
+    language = json['language'];
+    totalPage = json['totalPage'];
+    weight = json['weight'];
+    wide = json['wide'];
+    width = json['width'];
+    description = json['description'];
+    image = json['image'];
+    ranting = json['ranting'];
+    price = json['price'];
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'author': author,
+      'vendor': vendor,
+      'category': category,
+      'releasedDate': releasedDate,
+      'language': language,
+      'totalPage': totalPage,
+      'weight': weight,
+      'wide': wide,
+      'width': width,
+      'description': description,
+      'image': image,
+      'ranting': ranting,
+      'price': price,
+    };
+  }
 }
